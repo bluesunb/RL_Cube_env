@@ -11,6 +11,7 @@ from Sample.Cube.cube import Cube
 class CubeEnv(gym.Env):
     def __init__(self, size=2, max_steps=50):
         super(CubeEnv, self).__init__()
+        self.size = size
         self.cube = Cube(size)
         self.state = self.cube.state
         self.max_steps = max_steps
@@ -65,7 +66,6 @@ class CubeEnv(gym.Env):
             done = True
             info['msg'] = 'Max Step'
 
-
         if render:
             self.render(mode='step',
                         surface=surface,
@@ -73,7 +73,9 @@ class CubeEnv(gym.Env):
                         reward=reward,
                         done=done,
                         info=info)
-        return obs, reward, done, info
+
+        # division for make under 1
+        return obs, reward/(4*self.size), done, info
 
     def render(self, mode='human', **kwargs):
         if mode=='step':
@@ -95,6 +97,8 @@ class CubeEnv(gym.Env):
         if len(obs.shape) != 3 or obs.shape[0] != 6:
             size = int(np.sqrt(obs.size/6))
             return obs.reshape(6, size, size)
+        else:
+            return obs
 
     @staticmethod
     def get_reward(obs) -> float:
