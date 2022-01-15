@@ -217,7 +217,7 @@
  
 ### Learning Parameters
 
-#### Function parameters
+#### DQN parameters
 
 - `policy`  
   - `Union[str, Type[DQNPolicy]]`  
@@ -227,7 +227,7 @@
   - `Union[GymEnv, str]`
   learning의 대상이 되는 environment
 
-- 'learning_rate'
+- `learning_rate`
   - `Union[float, Schedule] = 1e-4`  
   learning rate
 
@@ -333,6 +333,43 @@
   - `bool = True`  
   `DQN` 인스턴스가 생성될 때 network들도 만들 것인지 여부
   
+#### Learning parameters
+- `total_timesteps`
+  - `int`  
+  train에 쓰일 총 env step의 수
+
+- `callback`
+  - `MaybeCallback = None`  
+  every step 마다 호출되는 callback
+
+- `log_interval`
+  - `int = 100`  
+  각 logging 사이의 timestep 간격
+  
+- `tb_log_name`
+  - `str = "run"`  
+  TensorBoard log의 run의 이름
+
+- `eval_env`
+  - `Optional[GymEnv] = None`  
+  agent를 evaluate 하기 위한 env
+
+- `eval_freq`
+  - `int = -1`  
+  agent evaluation interval
+
+- `n_eval_episodes`
+  - `int = 5`  
+  agent evaluation의 episode 수
+
+- `eval_log_path`
+  - `Optional[str] = None`  
+  evaluation log의 path
+
+- `reset_num_timesteps`
+  - `bool = True`  
+  log 기록에서 현재 timestep을 reset 할지 여부
+
 #### Trainable parameters
 
 <details>
@@ -346,7 +383,7 @@
 <details>
 <summary>FeaturesExtractor</summary>
 
-`FeaturesExtractor` 내에는 feature를 잡기 위한 trainable layer가 있다.
+`FeaturesExtractor` 내에는 feature를 잡기 위한 trainable layer가 있다.  
 `FeaturesExtractor`의 layer 구조는 `features_extractor_kwargs`를 통해 tuning 가능하다.
 
 </details>

@@ -4,7 +4,7 @@
 ## IR #1
 Thu Jan  6 20:49:51 2022
 <details>
-<summary> **Code** </summary>
+<summary> <strong>Code</strong> </summary>
 
 ```python
 import gym
@@ -136,7 +136,7 @@ feature_extractor로서, 1. FlattenExtractor(default), 2. NatureCNN
 ## IR #2
 Thu Jan  6 23:53:47 2022
 <details>
-<summary> **Code** </summary>
+<summary> <strong>Code</strong> </summary>
 
 ```python
 from stable_baselines3 import DQN
@@ -206,7 +206,7 @@ ValueError: Error: Unexpected observation shape (1, 6, 3, 3) for MultiDiscrete e
 ## IR #3
 Fri Jan  7 18:36:39 2022
 <details>
-<summary> **Code** </summary>
+<summary> <strong>Code</strong> </summary>
 
 ```python
 import gym
