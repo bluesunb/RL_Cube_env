@@ -1,0 +1,42 @@
+policy:   &id001
+  net_arch: ~
+  features_extractor_class: ~
+  features_extractor_kwargs: ~
+  normalize_images: true
+  optimizer_class: !!python/name:torch.optim.adam.Adam ''
+  optimizer_kwargs: ~
+
+model:
+  learning_rate: 1.0e-4
+  buffer_size: 1000000
+  learning_starts: 50000
+  batch_size: 32
+  tau: 1.0
+  gamma: 0.99
+  train_freq: 4
+  gradient_steps: 1
+  replay_buffer_class: ~
+  replay_buffer_kwargs: ~
+  optimize_memory_usage: false
+  target_update_interval: 10000
+  exploration_fraction: 0.1
+  exploration_initial_eps: 1.0
+  exploration_final_eps: 0.05
+  max_grad_norm: 10.0
+  tensorboard_log: ~
+  create_eval_env: false
+  policy_kwargs: *id001
+  verbose: 0
+  seed: ~
+  device: "auto"
+  _init_setup_model: true
+
+learning:
+  callback: ~
+  log_interval: 100
+  tb_log_name: ~
+  eval_env: ~
+  eval_freq: 100000
+  n_eval_episodes: 5
+  eval_log_path: ~
+  reset_num_timesteps: true

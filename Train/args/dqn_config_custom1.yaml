@@ -1,0 +1,158 @@
+learning:
+  callback: null
+  eval_env: !!python/object:Sample.Cube.Env.cube_env.CubeEnv
+    action_space: !!python/object:gym.spaces.discrete.Discrete
+      _np_random: null
+      dtype: &id001 !!python/object/apply:numpy.dtype
+        args:
+        - i8
+        - false
+        - true
+        state: !!python/tuple
+        - 3
+        - <
+        - null
+        - null
+        - null
+        - -1
+        - -1
+        - 0
+      n: 12
+      shape: !!python/tuple []
+    before_reward: 0
+    cube: !!python/object:Sample.Cube.Env.cube.Cube
+      _connectivity:
+      - !!python/tuple
+        - 1
+        - 2
+        - 3
+        - 4
+      - !!python/tuple
+        - 0
+        - 4
+        - 5
+        - 2
+      - !!python/tuple
+        - 5
+        - 3
+        - 0
+        - 1
+      - !!python/tuple
+        - 4
+        - 5
+        - 2
+        - 0
+      - !!python/tuple
+        - 3
+        - 5
+        - 1
+        - 0
+      - !!python/tuple
+        - 2
+        - 1
+        - 4
+        - 3
+      size: 3
+      state: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - &id002 !!python/name:numpy.ndarray ''
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 6
+          - 3
+          - 3
+        - !!python/object/apply:numpy.dtype
+          args:
+          - i4
+          - false
+          - true
+          state: !!python/tuple
+          - 3
+          - <
+          - null
+          - null
+          - null
+          - -1
+          - -1
+          - 0
+        - false
+        - !!binary |
+          AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAABAAAAAQAAAAEAAAAB
+          AAAAAQAAAAEAAAABAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAwAAAAMA
+          AAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAA
+          AAQAAAAEAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAA
+    eval_env: false
+    fractional_reward: false
+    max_steps: 50
+    observation_space: !!python/object:gym.spaces.multi_discrete.MultiDiscrete
+      _np_random: null
+      dtype: *id001
+      nvec: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id002
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 54
+        - *id001
+        - false
+        - !!binary |
+          BgAAAAAAAAAGAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAGAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAG
+          AAAAAAAAAAYAAAAAAAAABgAAAAAAAAAGAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAGAAAAAAAAAAYA
+          AAAAAAAABgAAAAAAAAAGAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAGAAAAAAAAAAYAAAAAAAAABgAA
+          AAAAAAAGAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAGAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAGAAAA
+          AAAAAAYAAAAAAAAABgAAAAAAAAAGAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAGAAAAAAAAAAYAAAAA
+          AAAABgAAAAAAAAAGAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAGAAAAAAAAAAYAAAAAAAAABgAAAAAA
+          AAAGAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAGAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAGAAAAAAAA
+          AAYAAAAAAAAABgAAAAAAAAAGAAAAAAAAAAYAAAAAAAAA
+      shape: !!python/tuple
+      - 54
+    size: 3
+    step_counter: 0
+    step_penalty: 1
+  eval_freq: 100
+  eval_log_path: logs/eval_log/
+  log_interval: 100
+  n_eval_episodes: 5
+  reset_num_timesteps: true
+  tb_log_name: null
+model:
+  _init_setup_model: true
+  batch_size: 16
+  buffer_size: 1000
+  create_eval_env: false
+  device: auto
+  exploration_final_eps: 0.05
+  exploration_fraction: 0.2
+  exploration_initial_eps: 1.0
+  gamma: 0.99
+  gradient_steps: 4
+  learning_rate: !!python/name:__main__.learning_rate_fun ''
+  learning_starts: 100
+  max_grad_norm: 10.0
+  optimize_memory_usage: false
+  policy_kwargs: &id003
+    features_extractor_class: !!python/name:stable_baselines3.common.torch_layers.FlattenExtractor ''
+    features_extractor_kwargs: null
+    net_arch: null
+    normalize_images: true
+    optimizer_class: !!python/name:torch.optim.adam.Adam ''
+    optimizer_kwargs: null
+  replay_buffer_class: null
+  replay_buffer_kwargs: null
+  seed: null
+  target_update_interval: 10
+  tau: 0.99
+  tensorboard_log: logs/tb_log/Mon-Jan-17-12:15:39-2022
+  train_freq: 1
+  verbose: 1
+policy: *id003
